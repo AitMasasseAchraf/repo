@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td> Brand Nmae</td>
+            <td> Brand Address</td>
+            <td> Service Date</td>
+            <td> Software Service</td>
+            <td>
+                <a href="{% url 'brand_insert' %} " class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Add New
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for brand in list %}
+          <tr>
+            <td> {{brand.Name_Brand}}</td>
+            <td>
+                {{brand.Address_Brand}}
+            </td>
+            <td> {{brand.Date_service}}</td>
+            <td>{{brand.software_service}}</td>
+            <td>
+                <a href="{% url 'brand_update' brand.id %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"><button type="button" class="btn btn-outline-danger">Edit</button></i>
+                </a>
+                <a href="{% url 'Brand_delete' brand.id %} " class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Delete
+                </a>
+            </td>
+          </tr>
+          {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

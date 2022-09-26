@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="" method="POST" autocomplete="on">
+    {% csrf_token %}
+    
+    <div>
+      {{form.Name_Brand|as_crispy_field}}
+      </div>
+      <div>
+          {{form.Address_Brand|as_crispy_field}}
+      </div>
+
+    
+  
+   
+    <div class="row">
+       <div class="col-md-6">
+              {{form.Date_service|as_crispy_field}}
+       </div>
+             
+        
+        
+        <div>
+         {{form.software_service|as_crispy_field}}
+         </div>
+      </div>
+    
+   
+    <div class="row">
+        <div class="col-md-8">
+          <button type="submit" class="btn btn-outline-success btn-block  btn-lg">Submit</button>
+       </div>
+       <div clas="col-md-4">
+         <a href="{% url 'brand_list' %}" class="btn btn-secondary btn-block btn-lg">
+            <i class="fas fa-stream"></i>Back to list
+         </a>
+
+       </div>
+    </div>
+   
+   
+   
+    
+    
+   
+
+
+
+
+   
+
+</form>
+{% endblock content %}
